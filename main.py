@@ -9,11 +9,14 @@
 from calc_fraction import real_calc
 from calc_complex import complex_calc
 from calc_interface import get_expression, parse_text, convert_to_complex, convert_to_fraction
+import datetime
 
+now = datetime.datetime.now()
+now_string = now.strftime('%H:%M:%S %d/%m/%y')
 
 def write_to_log(filename='logfile.txt', data: list = []):
     with open(filename, 'a') as output:
-        output.write(" = ".join(data))
+        output.write(now_string + ' ->   ' + " = ".join(data))
         output.write('\n')
 
 
